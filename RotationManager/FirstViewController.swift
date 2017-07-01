@@ -24,12 +24,38 @@ class FirstViewController: UIViewController, RotationSubscriber {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        RotationManager.shared.subscribe(self)
+        //RotationManager.shared.subscribe(self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         switchView?.isOn = false
+        rotationEnabled = false
         super.viewWillDisappear(animated)
     }
 }
+
+extension FirstViewController: RotationMaskRules {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return rotationEnabled ? whenUnlocked : whenLocked
+    }
+}
+
+extension UITabBarController {
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask
+    {
+        return (viewControllers ?? []).reduce(UIInterfaceOrientationMask(rawValue: 0), { (r, vc) in
+            return [r, vc.supportedInterfaceOrientations]
+        })
+    }
+}
+
+extension UINavigationController {
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask
+    {
+        return viewControllers.reduce(UIInterfaceOrientationMask(rawValue: 0), { (r, vc) in
+            return [r, vc.supportedInterfaceOrientations]
+        })
+    }
+}
+
 
