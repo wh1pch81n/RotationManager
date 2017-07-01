@@ -29,7 +29,17 @@ class FirstViewController: UIViewController, RotationSubscriber {
     
     override func viewWillDisappear(_ animated: Bool) {
         switchView?.isOn = false
+//        if rotationEnabled {
+            // works to force orientation check but it is flickery
+//            let vc = UIViewController()
+//            DispatchQueue.main.async {
+//                self.present(vc, animated: false) {
+//                    vc.dismiss(animated: false, completion: nil)
+//                }
+//            }
+//        }
         rotationEnabled = false
+        
         super.viewWillDisappear(animated)
     }
 }
