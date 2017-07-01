@@ -69,9 +69,8 @@ extension UITabBarController {
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask
     {
         let mask = presentedViewController?.supportedInterfaceOrientations
-            ?? (viewControllers ?? []).reduce(UIInterfaceOrientationMask(rawValue: 0), { (r, vc) in
-                return [r, vc.supportedInterfaceOrientations]
-            })
+            ?? selectedViewController?.supportedInterfaceOrientations
+            ?? .portrait
         print(#function, mask)
         return mask
     }
@@ -81,9 +80,8 @@ extension UINavigationController {
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask
     {
         let mask = presentedViewController?.supportedInterfaceOrientations
-            ?? viewControllers.reduce(UIInterfaceOrientationMask(rawValue: 0), { (r, vc) in
-                return [r, vc.supportedInterfaceOrientations]
-            })
+            ?? viewControllers.last?.supportedInterfaceOrientations
+            ?? .portrait
         print(#function, mask)
         return mask
     }
