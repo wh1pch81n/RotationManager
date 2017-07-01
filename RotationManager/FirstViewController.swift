@@ -11,16 +11,25 @@ import UIKit
 class FirstViewController: UIViewController, RotationSubscriber {
     
     var rotationEnabled: Bool = false
+    var switchView: UISwitch?
     
     @IBAction func switchValueChanged(_ sender: UISwitch) {
+        switchView = sender
         rotationEnabled = sender.isOn
+    }
+    
+    @IBAction func tappedButton(_ sender: Any) {
+        print(#function)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         RotationManager.shared.subscribe(self)
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        switchView?.isOn = false
+        super.viewWillDisappear(animated)
+    }
 }
 
