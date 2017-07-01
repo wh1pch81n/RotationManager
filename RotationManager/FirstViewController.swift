@@ -8,18 +8,19 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
-
+class FirstViewController: UIViewController, RotationSubscriber {
+    
+    var rotationEnabled: Bool = false
+    
+    @IBAction func switchValueChanged(_ sender: UISwitch) {
+        rotationEnabled = sender.isOn
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        RotationManager.shared.subscribe(self)
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
 }
 

@@ -9,6 +9,15 @@
 import XCTest
 @testable import RotationManager
 
+class MockViewController: UIViewController, RotationSubscriber {
+    
+    var rotationEnabled: Bool = false
+    
+    deinit {
+        print(#function, "MockViewController")
+    }
+}
+
 class RotationManagerTests: XCTestCase {
     
     override func setUp() {
@@ -22,8 +31,27 @@ class RotationManagerTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let rm = RotationManager.shared
+        XCTAssertEqual(rm.currentRotationMask, RotationMaskRules().whenLocked)
+        
+        
+        let vc = MockViewController()
+        rm.subscribe(vc)
+        
+        XCTAssertEqual(rm.currentRotationMask, RotationMaskRules().whenLocked)
+        
+        do {
+            let vc = MockViewController()
+            vc.rotationEnabled = true
+            rm.subscribe(vc)
+            
+            XCTAssertEqual(rm.currentRotationMask, RotationMaskRules().whenUnlocked)
+        }
+        XCTAssertEqual(rm.currentRotationMask, RotationMaskRules().whenLocked)
+        vc.rotationEnabled = true
+        XCTAssertEqual(rm.currentRotationMask, RotationMaskRules().whenUnlocked)
+        vc.rotationEnabled = false
+        XCTAssertEqual(rm.currentRotationMask, RotationMaskRules().whenLocked)
     }
     
     func testPerformanceExample() {
