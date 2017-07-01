@@ -52,6 +52,17 @@ extension FirstViewController: RotationSubscriber, RotationMaskRules {
         print(#function, mask)
         return mask
     }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        let newCollection = self.traitCollection
+        switch (newCollection.horizontalSizeClass, newCollection.verticalSizeClass) {
+        case (_, UIUserInterfaceSizeClass.compact):
+            self.navigationController?.isNavigationBarHidden = true
+            self.tabBarController?.tabBar.isHidden = true
+        default:
+            self.navigationController?.isNavigationBarHidden = false
+            self.tabBarController?.tabBar.isHidden = false
+        }
+    }
 }
 
 extension UITabBarController {
