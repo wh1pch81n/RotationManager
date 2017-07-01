@@ -15,6 +15,7 @@
 		7F0387E41F0726F400EFE2A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F0387E21F0726F400EFE2A8 /* LaunchScreen.storyboard */; };
 		7F0387EF1F0726F400EFE2A8 /* RotationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0387EE1F0726F400EFE2A8 /* RotationManagerTests.swift */; };
 		7F0387FA1F0726F400EFE2A8 /* RotationManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0387F91F0726F400EFE2A8 /* RotationManagerUITests.swift */; };
+		7F0388081F07466600EFE2A8 /* RotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0388071F07466600EFE2A8 /* RotationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		7F0387F51F0726F400EFE2A8 /* RotationManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RotationManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F0387F91F0726F400EFE2A8 /* RotationManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationManagerUITests.swift; sourceTree = "<group>"; };
 		7F0387FB1F0726F400EFE2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F0388071F07466600EFE2A8 /* RotationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				7F0387D71F0726F400EFE2A8 /* AppDelegate.swift */,
 				7F0387D91F0726F400EFE2A8 /* FirstViewController.swift */,
+				7F0388071F07466600EFE2A8 /* RotationManager.swift */,
 				7F0387DB1F0726F400EFE2A8 /* SecondViewController.swift */,
 				7F0387DD1F0726F400EFE2A8 /* Main.storyboard */,
 				7F0387E01F0726F400EFE2A8 /* Assets.xcassets */,
@@ -262,6 +265,7 @@
 				7F0387DC1F0726F400EFE2A8 /* SecondViewController.swift in Sources */,
 				7F0387D81F0726F400EFE2A8 /* AppDelegate.swift in Sources */,
 				7F0387DA1F0726F400EFE2A8 /* FirstViewController.swift in Sources */,
+				7F0388081F07466600EFE2A8 /* RotationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +526,7 @@
 				7F0388001F0726F400EFE2A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F0388011F0726F400EFE2A8 /* Build configuration list for PBXNativeTarget "RotationManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +535,7 @@
 				7F0388031F0726F400EFE2A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F0388041F0726F400EFE2A8 /* Build configuration list for PBXNativeTarget "RotationManagerUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +544,7 @@
 				7F0388061F0726F400EFE2A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
