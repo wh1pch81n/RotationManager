@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, RotationSubscriber {
+class FirstViewController: UIViewController {
     
     var rotationEnabled: Bool = false
     var switchView: UISwitch?
@@ -24,7 +24,11 @@ class FirstViewController: UIViewController, RotationSubscriber {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //RotationManager.shared.subscribe(self)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+    }
+    
+    @objc func tapped() {
+        dismiss(animated: true) {}
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -32,29 +36,45 @@ class FirstViewController: UIViewController, RotationSubscriber {
         rotationEnabled = false
         super.viewWillDisappear(animated)
     }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        switchView?.isOn = false
+        rotationEnabled = false
+        super.dismiss(animated: flag, completion: completion)
+    }
 }
 
-extension FirstViewController: RotationMaskRules {
+extension FirstViewController: RotationSubscriber, RotationMaskRules {
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return rotationEnabled ? whenUnlocked : whenLocked
+        let mask = presentedViewController?.supportedInterfaceOrientations
+            ?? (rotationEnabled ? whenUnlocked : whenLocked)
+        print(#function, mask)
+        return mask
     }
 }
 
 extension UITabBarController {
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask
     {
-        return (viewControllers ?? []).reduce(UIInterfaceOrientationMask(rawValue: 0), { (r, vc) in
-            return [r, vc.supportedInterfaceOrientations]
-        })
+        let mask = presentedViewController?.supportedInterfaceOrientations
+            ?? (viewControllers ?? []).reduce(UIInterfaceOrientationMask(rawValue: 0), { (r, vc) in
+                return [r, vc.supportedInterfaceOrientations]
+            })
+        print(#function, mask)
+        return mask
     }
 }
 
 extension UINavigationController {
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask
     {
-        return viewControllers.reduce(UIInterfaceOrientationMask(rawValue: 0), { (r, vc) in
-            return [r, vc.supportedInterfaceOrientations]
-        })
+        let mask = presentedViewController?.supportedInterfaceOrientations
+            ?? viewControllers.reduce(UIInterfaceOrientationMask(rawValue: 0), { (r, vc) in
+                return [r, vc.supportedInterfaceOrientations]
+            })
+        print(#function, mask)
+        return mask
     }
 }
 

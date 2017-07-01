@@ -45,6 +45,22 @@
                                     <action selector="switchValueChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="HkZ-Is-D2V"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3L-61-8UU">
+                                <rect key="frame" x="163" y="400" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Ofl-6t-Ckn" kind="show" id="iUC-77-xxc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3v-qE-mk7">
+                                <rect key="frame" x="163" y="453" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="8rJ-Kc-sve" kind="show" id="qH2-bY-vrd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -58,7 +74,7 @@
                     <navigationItem key="navigationItem" id="s7e-Pc-odz">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="97e-oS-M88">
                             <connections>
-                                <segue destination="DbL-3P-Znj" kind="show" id="XDy-KD-sMU"/>
+                                <segue destination="DbL-3P-Znj" kind="show" id="Qvu-4K-UHQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -134,7 +150,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--First-->
+        <!--First View Controller-->
         <scene sceneID="HpV-Hz-tGn">
             <objects>
                 <viewController id="DbL-3P-Znj" customClass="FirstViewController" customModule="RotationManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -176,11 +192,11 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="xVy-bz-Lul"/>
+                    <navigationItem key="navigationItem" id="j7r-rZ-DvC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFK-6e-HLE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-322"/>
+            <point key="canvasLocation" x="3439" y="-321"/>
         </scene>
         <!--First-->
         <scene sceneID="f6c-bY-rI4">
@@ -220,9 +236,32 @@
             </objects>
             <point key="canvasLocation" x="748.79999999999995" y="359.82008995502252"/>
         </scene>
+        <!--First-->
+        <scene sceneID="e6e-Tx-MhU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ofl-6t-Ckn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="First" image="first" id="xVy-bz-Lul"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gZr-du-f7g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DbL-3P-Znj" kind="relationship" relationship="rootViewController" id="zWN-m2-Goa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v2l-Ic-LRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2484" y="120"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qH2-bY-vrd"/>
+        <segue reference="zWN-m2-Goa"/>
+    </inferredMetricsTieBreakers>
 </document>
