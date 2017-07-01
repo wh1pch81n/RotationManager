@@ -29,6 +29,7 @@ class FirstViewController: UIViewController, RotationSubscriber {
     
     override func viewWillDisappear(_ animated: Bool) {
         switchView?.isOn = false
+        rotationEnabled = false
         super.viewWillDisappear(animated)
     }
 }
